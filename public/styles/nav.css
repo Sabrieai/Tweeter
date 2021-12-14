@@ -1,0 +1,24 @@
+
+.navbar {
+  display: flex;
+  color: #ffffff;
+  background-color: #4056A1;
+  height: 120px;
+  width: 100%;
+  align-items: center;
+  /*
+<span> within the <nav> uses Bungee as its default font-family
+1.5ems of space on the right and left between the content and the edges 
+*/
+}
+
+.navContent {
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+
+
+}
+
+.logo {
+  font-family: Bungee, sans-serif;
+}
