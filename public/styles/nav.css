@@ -6,6 +6,8 @@
   background-color: #4056A1;
   height: 120px;
   width: 100%;
+  z-index: 1;
+  position: absolute;
 }
 
 .navContent {
@@ -13,7 +15,14 @@
   margin-left: 1.5em;
   margin-right: 1.5em;
   align-items: center;
+  width: 100%;
   justify-content: space-between;
+}
+
+.navColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -21,6 +30,5 @@
 }  
 
 i {
-  size: 300px;
   color: red;
 }
