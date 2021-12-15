@@ -1,8 +1,12 @@
+/* 100% width is 90% because main is its parent
+    Spans from parent to child*/
+
+
 .new-tweet {
-  width: 100%; /*90% because main is its parent*/
+  width: 100%; 
 }
 
-#below{
+#below {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
