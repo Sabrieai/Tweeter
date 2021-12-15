@@ -4,10 +4,32 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-top: 15px
 }
 
+.tweet-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.tweet-body {
+  width: 90%;
+}
 
 .footer{
   border-top: 2px solid #152952;
   width: 90%;
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+}
+
+.face {
+  padding-right: 10px;
 }
