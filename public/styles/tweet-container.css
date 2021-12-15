@@ -7,6 +7,10 @@
   margin-top: 15px
 }
 
+.article:hover {
+  box-shadow: 10px 10px 11px -1px  #4854d1; 
+}
+
 .tweet-header {
   display: flex;
   flex-direction: row;
@@ -21,8 +25,13 @@
 }
 
 .footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   border-top: 2px solid #152952;
   width: 90%;
+  padding-top: 5px;
+  margin-bottom: 10px;
 }
 
 .person {
@@ -32,4 +41,23 @@
 
 .face {
   padding-right: 10px;
+}
+
+.fa-flag {
+  color: #152952;
+}
+.fa-retweet {
+  color: #152952;
+}
+.fa-heart {
+  color: #152952;
+}
+.fa-flag:hover:hover{
+  color: black
+}
+.fa-retweet:hover{
+ color:green
+}
+.fa-heart:hover{
+ color:#9b0404;
 }
