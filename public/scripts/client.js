@@ -88,56 +88,20 @@ const createTweetElement = function(data) {
    
 };
 
-// Test / driver code (temporary)
+////////////////////////////// TEST CODE ////////////////////////////////////////
+
 const $tweet = createTweetElement(tweetData);
 console.log($tweet); // to see what it looks like
-const ready = $('#tweets-container').append($tweet);
+//const ready = $('#tweets-container').append($tweet);
 
 $(document).ready(function() {
-  ready;
+  $('#tweets-container').append($tweet);
 });
 
-const check = renderTweets(data);
+//const check = renderTweets(data);
 
 $(document).ready(function() {
-  check;
+  renderTweets(data);
 });
 
-
-
-
-
-// first go at it might keep around to if I want to save something
-/*$(document).ready(function(tweetData) {
-  const createTweetElement = function(data) {
-    const $markUp =
-    ` <article class = "article">
-        <div class = "tweet-header">
-          <div class = person>
-          <img  class = "face" src= ${data.user.avatars} />
-          <br>
-          <p class="username">${data.user.name}</p>
-          </div>
-          <span class="handle">${data.user.handle}</span>
-        </div>
-        <div class = "tweet-body">
-        <p> ${data.content.text}</p>
-      </div>
-        <footer class = "footer">
-        ${data.created_at}
-          <div class = "icons">
-          <i class="fas fa-flag" ></i>
-          <i class="fas fa-retweet" ></i>
-          <i class="fas fa-heart" ></i>
-          </div>
-        </footer>
-      </article>`;
-    $('#tweets-container').append($markUp);
-    return $markUp;
-   
-  };
-  const $tweet = createTweetElement(tweetData);
-  $('#tweet-post-container') .append($tweet);
-  console.log($tweet);
-});*/
 
