@@ -12,19 +12,7 @@
 
 // eslint-disable-next-line no-undef
 $(document).ready(function() {
-  ///////////////////////////// DATATBASES FOR TESTING ////////////////////////////////////////
-  const tweetData = {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  };
-
+  ///////////////////////////// DATATBASES FOR TESTING //////////////////////////
   const data = [
     {
       "user": {
@@ -99,23 +87,47 @@ $(document).ready(function() {
   //still posts when it is just "     " though
   
   $("form").submit(function(event) {
+    // this doesnt work for spaces 
     event.preventDefault();
-    // Get some values from elements on the page:
+    let validTweet = true;
     const data = $(this).serialize();
-    console.log("data", data);
-    $.ajax({
-      type: "POST",
-      url: $("form").attr("action"),
-      data:$(this).serialize(),
-      success: (data) => {
-        console.log('Succesfully posted tweet', data);
-      },
-      error: (error) => {
-        console.log('Post failed here is an error message on the house', error);
-      }
-    });
-  });
+    console.log(data);
+    console.log(data.length);
 
+    if (data.length <= 5 || data === null) {
+      alert("Your tweet is empty, show us what you've got!");
+      alert("Hello! I am an alert box!");
+      validTweet = false;
+    } else if (data.length >= 146) {
+      alert("Your tweet exeeds the limit, try and keep the counter above 0");
+      validTweet = false;
+    }
+   
+    console.log("data", data);
+
+    if (validTweet) {
+      $.ajax({
+        type: "POST",
+        url: $("form").attr("action"),
+        data:$(this).serialize(),
+        success: (data) => {
+          console.log('Succesfully posted tweet', data);
+        },
+      });
+    }
+  });
+  //use jQuery to make a request to /tweets and receive the array of tweets as JSON.
+  const loadTweets = function() {
+    $.ajax({
+      url: "/tweets/",
+      method: "GET",
+    }).done(function($Tweet) {
+      renderTweets($Tweet);
+    });
+  };
+    
+  loadTweets();
+  
 });
 
 ////////////////////////////// TEST CODE ////////////////////////////////////////
