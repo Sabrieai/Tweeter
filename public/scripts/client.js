@@ -87,18 +87,18 @@ $(document).ready(function() {
   //still posts when it is just "     " though
   
   $("form").submit(function(event) {
-    // this doesnt work for spaces 
+    // this doesnt work for spaces
+    //got it to work for spaces
     event.preventDefault();
     let validTweet = true;
     const data = $(this).serialize();
-    console.log(data);
-    console.log(data.length);
-
-    if (data.length <= 5 || data === null) {
+   
+    const chars = $("#tweet-text").val().length;
+    if (chars === 0 || data === null) {
       alert("Your tweet is empty, show us what you've got!");
       alert("Hello! I am an alert box!");
       validTweet = false;
-    } else if (data.length >= 146) {
+    } else if (chars > 140) {
       alert("Your tweet exeeds the limit, try and keep the counter above 0");
       validTweet = false;
     }
