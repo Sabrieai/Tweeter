@@ -8,10 +8,11 @@
 //const timeAgo = new TimeAgo('en-US');
 // hard coded for now
 
-///////////////////////////// DATATBASES FOR TESTING ////////////////////////////////////////
 
+
+// eslint-disable-next-line no-undef
 $(document).ready(function() {
-  
+  ///////////////////////////// DATATBASES FOR TESTING ////////////////////////////////////////
   const tweetData = {
     "user": {
       "name": "Newton",
@@ -93,12 +94,34 @@ $(document).ready(function() {
   };
   renderTweets(data);
 
+  // uses ajax call to submit form and prevent page reload
+  // console.log to make sure we are recieving a serialized version
+  //still posts when it is just "     " though
+  
+  $("form").submit(function(event) {
+    event.preventDefault();
+    // Get some values from elements on the page:
+    const data = $(this).serialize();
+    console.log("data", data);
+    $.ajax({
+      type: "POST",
+      url: $("form").attr("action"),
+      data:$(this).serialize(),
+      success: (data) => {
+        console.log('Succesfully posted tweet', data);
+      },
+      error: (error) => {
+        console.log('Post failed here is an error message on the house', error);
+      }
+    });
+  });
+
 });
 
 ////////////////////////////// TEST CODE ////////////////////////////////////////
 
-const $tweet = createTweetElement(tweetData);
-console.log($tweet); // to see what it looks like
+//const $tweet = createTweetElement(tweetData);
+//console.log($tweet); // to see what it looks like
 //const ready = $('#tweets-container').append($tweet);
 
 //$(document).ready(function() {
