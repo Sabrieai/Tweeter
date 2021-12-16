@@ -4,6 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const TimeAgo = require('timeago.js');
+const timeAgo = new TimeAgo('en-US');
 // hard coded for now
 const tweetData = {
   "user": {
@@ -33,7 +35,7 @@ const createTweetElement = function(data) {
         <p> ${data.content.text}</p>
       </div>
         <footer class = "footer">
-        ${timeago.format(data.created_at)}
+        ${timeAgo.format(data.created_at)}
           <div class = "icons">
           <i class="fas fa-flag" ></i>
           <i class="fas fa-retweet" ></i>
