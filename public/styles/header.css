@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #4c889e;
-  background-image: url("../clean-gray-paper.png");
+  background-image: url("/public/images/clean-gray-paper.png");
 }
 
 .avatar {

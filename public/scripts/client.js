@@ -12,6 +12,8 @@
 
 // eslint-disable-next-line no-undef
 $(document).ready(function() {
+
+  $(".error").hide();
   
   const renderTweets = function(tweets) {
     // reset text box when submit finishsed
@@ -71,10 +73,10 @@ $(document).ready(function() {
    
     const chars = $("#tweet-text").val().length;
     if (chars === 0 || data === null) {
-      alert("Your tweet is empty, show us what you've got!");
+      $(".error").text("Your tweet is empty, we want to know what you're humming about!").slideDown().delay(3500).hide(500);
       validTweet = false;
     } else if (chars > 140) {
-      alert("Your tweet exeeds the limit, try and keep the counter above 0");
+      $(".error").text("Your tweet exeeds the limit, try and keep the counter above 0").slideDown().delay(3500).hide(500);
       validTweet = false;
     }
    

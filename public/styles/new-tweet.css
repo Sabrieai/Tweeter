@@ -21,6 +21,10 @@
   font-family: Bungee, sans-serif;
 }
 
+.counter{
+  font-family: Bungee, sans-serif;
+}
+
 #tweet-text {
   display: flex;
   width: 100%;
@@ -33,4 +37,12 @@
 
 .red {
   color: red;
+}
+
+.error {
+  color: rgb(158, 5, 5);
+	padding:20px 36px;
+	margin:10px;
+  background:#ffecec  url('https://i.imgur.com/GnyDvKN.png') no-repeat 5px;
+	border:1px solid rgb(158, 5, 5);
 }
