@@ -14,12 +14,16 @@
 $(document).ready(function() {
   
   const renderTweets = function(tweets) {
+    // reset text box when submit finishsed
+    $(".counter").text("140");
+    $("#tweet-text").val("");
+    $("#tweet-text").focus();
     // loops through tweets (for in because its an object)
     for (let tweet in tweets) {
     // calls createTweetElement for each tweet
       const $Tweet = createTweetElement(tweets[tweet]);
-      // takes return value and appends it to the tweets container
-      $('#tweets-container').append($Tweet);
+      // takes return value and prepends it to the tweets container so freshes tweets are at the beginning of feed
+      $('#tweets-container').prepend($Tweet);
       console.log($Tweet);
     }
   };
@@ -36,7 +40,7 @@ $(document).ready(function() {
           <span class="handle">${data.user.handle}</span>
         </div>
         <div class = "tweet-body">
-        <p> ${data.content.text}</p>
+        <p> ${escape(data.content.text)}</p>
       </div>
         <footer class = "footer">
         ${timeago.format(data.created_at)}
@@ -84,7 +88,12 @@ $(document).ready(function() {
         success: (data) => {
           console.log('Succesfully posted tweet', data);
         },
-      });
+      }).then(
+        () => {
+          loadTweets();
+        }
+      );
+
     }
   });
   //use jQuery to make a request to /tweets and receive the array of tweets as JSON.
@@ -96,9 +105,15 @@ $(document).ready(function() {
       renderTweets($Tweet);
     });
   };
+
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
     
   loadTweets();
-  
+
 });
 
 
