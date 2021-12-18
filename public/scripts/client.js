@@ -1,36 +1,30 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+ * Client-side JS logic
  */
 
-//const TimeAgo = require('timeago.js');
-//const timeAgo = new TimeAgo('en-US');
-// hard coded for now
 
-
-
-// eslint-disable-next-line no-undef
 $(document).ready(function() {
 
+  //hides the error on page load
   $(".error").hide();
   
   const renderTweets = function(tweets) {
-    // reset text box when submit finishsed
+
+    // reset text box and tweet container when submit finishsed
     $(".counter").text("140");
     $("#tweet-text").val("");
     $("#tweet-text").focus();
     $('#tweets-container').empty();
-    // loops through tweets (for in because its an object)
+
     for (let tweet in tweets) {
     // calls createTweetElement for each tweet
       const $Tweet = createTweetElement(tweets[tweet]);
-      // takes return value and prepends it to the tweets container so freshes tweets are at the beginning of feed
+      // takes return value and prepends it to the tweets container so new tweets are at the beginning of feed
       $('#tweets-container').prepend($Tweet);
-      console.log($Tweet);
     }
   };
 
+  // markup for new tweet to bee inserted into tweet container
   const createTweetElement = function(data) {
     const $markUp =
     ` <article class = "article">
@@ -59,15 +53,11 @@ $(document).ready(function() {
     return $markUp;
    
   };
-  //renderTweets(data);
 
   // uses ajax call to submit form and prevent page reload
-  // console.log to make sure we are recieving a serialized version
-  //still posts when it is just "     " though
   
   $("form").submit(function(event) {
-    // this doesnt work for spaces
-    //got it to work for spaces
+
     event.preventDefault();
     let validTweet = true;
     const data = $(this).serialize();
@@ -109,6 +99,7 @@ $(document).ready(function() {
     });
   };
 
+  // protects from malicious code
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
