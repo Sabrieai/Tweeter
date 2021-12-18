@@ -6,7 +6,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-![chrome-capture](https://user-images.githubusercontent.com/93690436/146627868-58d1e361-3e0f-41d2-8fe4-2f16c370ae02.gif)
+![Uploading chrome-capture (1).gif…]()
 
 <img width="831" alt="Screen Shot 2021-12-16 at 8 46 16 PM" src="https://user-images.githubusercontent.com/93690436/146626894-0614d440-d2d6-46e3-9ea4-5d3d521e542e.png">
 
