@@ -22,6 +22,7 @@ body {
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
+ * Where I've placed "wide-spanning" styles
  */
 
 body {
@@ -35,9 +36,11 @@ header {
 }
 
 main{
-  margin-right: 5%;
-  margin-left: 5%;
+  margin-right: 2%;
+  margin-left: 2%;
   margin-top: 0px;
   margin-bottom: 0px;
  align-items: center;
+ flex: auto;
 }
+
