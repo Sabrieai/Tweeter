@@ -20,6 +20,7 @@ $(document).ready(function() {
     $(".counter").text("140");
     $("#tweet-text").val("");
     $("#tweet-text").focus();
+    $('#tweets-container').empty();
     // loops through tweets (for in because its an object)
     for (let tweet in tweets) {
     // calls createTweetElement for each tweet
